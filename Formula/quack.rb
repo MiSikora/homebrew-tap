@@ -1,8 +1,8 @@
 class Quack < Formula
   desc "Call actions of quack-enabled Android apps over adb"
   homepage "https://github.com/MiSikora/Quack"
-  url "https://github.com/MiSikora/Quack/releases/download/0.1.2/quack-0.1.2-macos.tar.gz"
-  sha256 "2c47bf41d9595e2ddfbc6d701b02a69bc1d15ecf5df8f0dda8638928148384db"
+  url "https://github.com/MiSikora/Quack/releases/download/0.1.3/quack-0.1.3-macos.tar.gz"
+  sha256 "0ff425483d4ce607764bd6fd7127038addb6853ca6103bd37a006188ff284f0a"
   license "Apache-2.0"
 
   depends_on :macos
