@@ -1,0 +1,42 @@
+name: Check
+on:
+  pull_request:
+  push:
+    branches:
+      - trunk
+
+permissions: {}
+
+jobs:
+  check:
+    name: Check (${{ matrix.os }})
+    strategy:
+      fail-fast: false
+      matrix:
+        # Apple Silicon and Intel.
+        os: [macos-latest, macos-15-intel]
+    runs-on: ${{ matrix.os }}
+    permissions:
+      contents: read
+    steps:
+      # It checks out this tap as misikora/tap.
+      - name: Set Up Homebrew
+        uses: Homebrew/actions/setup-homebrew@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # 2026.11.14.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Check Style
+        run: brew style misikora/tap
+
+      - name: Audit Formulae
+        run: brew audit --strict --online --tap misikora/tap
+
+      # quack-mcp depends on quack, so this installs both.
+      - name: Install Formulae
+        run: brew install misikora/tap/quack-mcp
+
+      - name: Test Formulae
+        run: brew test misikora/tap/quack misikora/tap/quack-mcp
+
+      - name: Uninstall Formulae
+        run: brew uninstall misikora/tap/quack-mcp misikora/tap/quack
