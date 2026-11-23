@@ -1,8 +1,8 @@
 class QuackMcp < Formula
   desc "MCP server for actions of quack-enabled Android apps"
   homepage "https://github.com/MiSikora/Quack"
-  url "https://github.com/MiSikora/Quack/releases/download/0.1.4/quack-mcp-0.1.4-macos.tar.gz"
-  sha256 "6239c5724cc48dca8f9c891d1a5da4c53632a6f9dfb862f39d4cd77a04612b78"
+  url "https://github.com/MiSikora/Quack/releases/download/0.1.5/quack-mcp-0.1.5-macos.tar.gz"
+  sha256 "071c25a47ae46f4e5fc35f8261d9cddf2e780284493e689a9822b645c5e96218"
   license "Apache-2.0"
 
   depends_on :macos
